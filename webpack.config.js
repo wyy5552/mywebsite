@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require("webpack");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
@@ -14,23 +14,23 @@ const config = {
         rules: [
             {
                 test: /\.css$/,
-                use: [{
-                    loader: "style-loader"
-                }, {
-                    loader: "css-loader",
-                    options: {
-                        modules: true, // 指定启用css modules
-                    }
-                }
-                ]
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: "css-loader"
+                })
             }
 
         ]
     },
     plugins: [
+        new ExtractTextPlugin({
+            filename:"[name].css",
+            allChunks: true
+        }),
         new HtmlWebpackPlugin(
             {
                 filename: 'index.html',
+                inject: true,
                 template: path.resolve(__dirname, './public/index.html')
             }
         ),
