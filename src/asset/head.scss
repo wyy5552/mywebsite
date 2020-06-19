@@ -1,0 +1,92 @@
+header{
+    height: 2rem;
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    .head-top{
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 2rem;
+        width: 100%;
+        position: absolute;
+        background-color: rgba(34, 34, 34,1);
+        .icon{
+            height: 2rem !important;
+            width: 2rem !important;
+        }
+    
+        .right-icon{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: .3rem 0;
+            width: 2rem;
+            position: relative;
+            span{
+                display: block;
+                height: .2rem;
+                width: 100%;
+                background: white;
+                transition: all 1s ease;
+                top: 0;
+                
+            }
+            &:hover{
+                span:nth-child(2){
+                    opacity: 0;
+                }
+            }
+        }
+    }
+    &:hover{
+        nav{
+            top:2rem;
+        }
+        height: 17rem;
+    }
+
+    nav{
+        z-index: 1;
+        background-color: rgba(34, 34, 34,.5);
+        height: 15rem;
+        transition: all .5s ease;
+        position: absolute;
+        width: 100%;
+        top:-15rem;
+        .head-tag{
+            height: 3rem;
+            font-weight: 1000;
+            line-height: 3rem;
+            font-size: 1.5rem;
+            position: relative;
+            color:white;
+            cursor: pointer;
+        }
+        
+        .head-tag::before{
+            content: attr(data-text);
+            color: red;
+            font-weight: 1000;
+            line-height: 3rem;
+            position: absolute;
+            left: 0rem;
+            right: 0rem;
+            height: 100%;
+            width: 0;
+            overflow: hidden;
+            transition: width 0.5s ease 0s;
+        }
+        .head-tag:hover::before{
+            width: 100%;
+        }
+    }
+
+}
+
+
+
+

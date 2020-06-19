@@ -1,4 +1,4 @@
 import "../public/index.html"
-import "./main.scss";
+import "./asset/main.scss";
 
 console.log("你好");
