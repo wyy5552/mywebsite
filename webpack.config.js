@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 const config = {
-    entry: "./src/main.js",
+    entry: ['webpack/hot/dev-server', path.resolve(__dirname, 'src/main.js')],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
@@ -18,13 +18,34 @@ const config = {
                     fallback: "style-loader",
                     use: "css-loader"
                 })
-            }
+            },
+            {
+                test: /\.(htm|html)$/,
+                use: [
+                    'raw-loader'
+                ]
+            },
+            //解析.scss文件,对于用 import 或 require 引入的sass文件进行加载，以及<style lang="sass">...</style>声明的内部样式进行加载
+            {
+                test: /\.scss$/,
+                use: [
+                  {
+                    loader: "style-loader" // 将 JS 字符串生成为 style 节点
+                  },
+                  {
+                    loader: "css-loader" // 将 CSS 转化成 CommonJS 模块
+                  },
+                  {
+                    loader: "sass-loader" // 将 Sass 编译成 CSS
+                  }
+                ]
+              }
 
         ]
     },
     plugins: [
         new ExtractTextPlugin({
-            filename:"[name].css",
+            filename: "[name]-[hash].css",
             allChunks: true
         }),
         new HtmlWebpackPlugin(
