@@ -1,53 +1,17 @@
-@font-face {
-    font-family:'winmantun230012172aee04c21f81';
-}
+
+@import './normalize.css';
+@import './reset.css';
+@import './head.scss';
+@import './company.scss';
+@import './home.scss';
+
+
+
 body{
     background-color: #666666;
     color:white;
 
 }
-div{
-    margin:0;
+html{
+    font-size: 16px;
 }
-body ,nav{
-    margin:0;
-    padding:0;
-}
-
-@import './head.scss';
-
-.main-content-1{
-    margin: 5rem;
-    font-family:'winmantun230012172aee04c21f81';
-    display:flex;
-    justify-content: space-between;
-    .slogan-2{
-        font-size: 4rem;
-    }
-    .slogan-1{
-        font-size: 2rem;
-    }
-    img{
-        display: block;
-        top:0;
-        left: 0;
-        height: 100vh;
-        width: 40vw;
-        object-fit: cover;
-        clip-path:circle(50% at 50% 50%);
-        animation: imgani 3s infinite;
-        filter: blur(4px);
-    }
-    @keyframes imgani {
-        10%{
-            clip-path:circle(10% at 50% 50%);
-        }
-        50%{
-            clip-path:circle(50% at 50% 50%);
-        }
-        90%{
-            clip-path:circle(60% at 50% 50%);
-        }
-    }
-}
-

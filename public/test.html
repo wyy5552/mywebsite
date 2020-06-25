@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>你好</title>
+    </head>
+    <body>
+        <style>
+            .box {
+              display: grid; 
+              grid-template-columns: repeat(12, 1fr);
+              grid-template-rows: 50px 350px 50px;
+              grid-gap: 5px;
+              grid-template-areas:
+                  "h h h h h h h h h h h h"
+                  "m m c c c c c c c c c c"
+                  "f f f f f f f f f f f f";
+            }
+            .header {
+              grid-area: h;
+              background: greenyellow;
+            }
+            .menu {
+              grid-area: m;
+              background: blue;
+            }
+            .content {
+              grid-area: c;
+              background: coral;
+            }
+            .footer {
+              grid-area: f;
+              background: purple;
+            }
+            .box>div{
+              font-size: 24px;
+              text-align: center;
+            }
+          </style>
+          
+           <div class="box">      
+               <div class="header">header</div>
+               <div class="menu">menu</div>
+               <div class="content">content</div>
+               <div class="footer">footer</div>   
+           </div>
+    </body>
+</html>

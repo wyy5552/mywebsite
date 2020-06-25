@@ -1,0 +1,13 @@
+.company{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    section{
+        background-color: blue;
+        border:2px solid yellow;
+        border-radius: 20px;
+        padding: 1rem;
+    }
+    
+}
